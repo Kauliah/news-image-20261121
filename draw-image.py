@@ -80,15 +80,18 @@ def icon_building(d, x, y, s, color):
 
 
 def icon_cuffs(d, cx, cy, r, color):
-    """Handcuffs: two rings joined by a short chain."""
+    """Handcuffs: two rings joined by a short chain link."""
     for dx in (-r - 4, r + 4):
         d.ellipse([cx + dx - r, cy - r, cx + dx + r, cy + r],
                   outline=color, width=9)
         d.ellipse([cx + dx - r // 2, cy - r // 2,
                    cx + dx + r // 2, cy + r // 2], outline=color, width=4)
-    d.line([(cx - 6, cy - r - 6), (cx + 6, cy - r - 6)], fill=color, width=7)
-    d.line([(cx - 6, cy - r - 6), (cx - 6, cy - r - 18)], fill=color, width=5)
-    d.line([(cx + 6, cy - r - 6), (cx + 6, cy - r - 18)], fill=color, width=5)
+    d.line([(cx - r - 4, cy - r), (cx - 9, cy - r - 14)],
+           fill=color, width=6)
+    d.line([(cx + r + 4, cy - r), (cx + 9, cy - r - 14)],
+           fill=color, width=6)
+    d.ellipse([cx - 11, cy - r - 24, cx + 11, cy - r - 6],
+              outline=color, width=5)
 
 
 def icon_globe(d, cx, cy, r, color):
